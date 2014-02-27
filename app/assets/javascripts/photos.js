@@ -3,7 +3,7 @@ $(document).ready(function($){
 
 
   $.ajax({
-    url: '/photos',
+    url: '/photos', //url matches controller
     type: 'GET',
     dataType: 'json',
   })
@@ -29,6 +29,6 @@ CommentApp.renderAllPhotos = function(photos){
 };
 
 CommentApp.renderPhoto = function(photo){
-  var $photoImg = $('<img>', {src: photo.url});
+  var $photoImg = $('<img>', { src: photo.url } );
   this.$photosDiv.append($photoImg);
 };
