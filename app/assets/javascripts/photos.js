@@ -1,14 +1,14 @@
-$(document).ready(function(){
-  PhotoApp.$photosDiv = $('#all_photos');
+$(document).ready(function($){
+  CommentApp.$photosDiv = $('#all_photos');
 
 
   $.ajax({
-    url: '/comments',
+    url: '/photos',
     type: 'GET',
     dataType: 'json',
   })
   .done(function(data) {
-    PhotoApp.renderAllPhotos(data);
+    CommentApp.renderAllPhotos(data);
   })
   .fail(function() {
     console.log("error");
@@ -18,18 +18,17 @@ $(document).ready(function(){
   });
 });
 
-PhotoApp = {
+var CommentApp = CommentApp || {
 }
 
-PhotoApp.renderAllPhotos = function(photos){
+CommentApp.renderAllPhotos = function(photos){
   var numPhotos = photos.length, i = 0;
   for(; i < numPhotos; i = i + 1) {
-    PhotoApp.renderPhoto(photos[i]);
+    CommentApp.renderPhoto(photos[i]);
   }
 };
 
-PhotoApp.renderPhoto = function(photo){
-  var photoImage = '<img src="' + photo.url + '">';
-  debugger
-  this.$photosDiv.append(photoImage);
+CommentApp.renderPhoto = function(photo){
+  var $photoImg = $('<img>', {src: photo.url});
+  this.$photosDiv.append($photoImg);
 };

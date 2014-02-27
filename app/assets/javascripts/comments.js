@@ -18,7 +18,7 @@ $(document).ready(function(){
   });
 });
 
-CommentApp = {
+var CommentApp = CommentApp || {
 }
 
 CommentApp.renderAllComments = function(comments){
