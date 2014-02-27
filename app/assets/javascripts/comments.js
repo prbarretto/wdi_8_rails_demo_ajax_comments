@@ -1,6 +1,7 @@
 $(document).ready(function(){
   CommentApp.$commentsDiv = $('#all_comments');
 
+
   $.ajax({
     url: '/comments',
     type: 'GET',
@@ -18,7 +19,6 @@ $(document).ready(function(){
 });
 
 CommentApp = {
-
 }
 
 CommentApp.renderAllComments = function(comments){
